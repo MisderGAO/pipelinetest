@@ -22,6 +22,6 @@ node {
 
     stage "Deploy"
 
-        kubernetesDeploy configs: "deployment/*.yaml", kubeconfigId: 'admin'
+        kubernetesDeploy configs: "deployment/*.yml", kubeconfigId: 'admin'
 
 }
