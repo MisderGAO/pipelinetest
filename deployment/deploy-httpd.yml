@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd
+  namespace: ci-cd
+  labels:
+    app: sitti
+    tier: httpd
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sitti
+      tier: httpd
+  template:
+    metadata:
+      labels:
+        app: sitti
+        tier: httpd
+    spec:
+      containers:
+      - name: httpd
+        image: 127.0.0.1:30400/httpd:$BUILD_TAG
+        ports:
+        - containerPort: 80
+          name: http
