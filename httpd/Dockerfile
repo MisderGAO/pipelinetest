@@ -8,7 +8,7 @@ LABEL maintainer="Ozitem"
 RUN ln -fs /usr/share/zoneinfo/Europe/Paris /etc/localtime \
     && dpkg-reconfigure -f noninteractive tzdata
 
-COPY www/ /usr/local/apache2/htdocs
+COPY www/html /usr/local/apache2/htdocs
 
 #RUN chown www-data:www-data /usr/local/apache2/www
 #USER www-data
