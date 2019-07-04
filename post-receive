@@ -1,0 +1,2 @@
+#!/bin/sh
+curl http://192.168.86.17:31354/git/notifyCommit?url=https://github.com/MisderGAO/pipelinetest
