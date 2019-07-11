@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: httpd
-        image: 127.0.0.1:30400/httpd:$BUILD_TAG
+        image: $BUILDIMG
         ports:
         - containerPort: 80
           name: http
