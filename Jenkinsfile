@@ -62,14 +62,15 @@ pipeline
                     appName = "httpd"
                     registryHost = "127.0.0.1:30400/"
 
-                    sh "touch version.txt"
-                    sh "echo 'test1' | tee version.txt"
+                    // sh "touch version.txt"
+                    // sh "echo 'test1' | tee version.txt"
                     def exists = fileExists 'version.txt'
                     if (exists) {
                             tag = readFile('version.txt').replace("\n", "").replace("\r", "")                            
                             image = "${registryHost}${appName}:${tag}"
                             env.BUILDIMG = image
                             sh 'echo ${tag}'
+                            sh "docker build -t ${image} ${appName}/"
                     } else {
                             throw e  
                             // sh "echo sorry"
@@ -80,10 +81,7 @@ pipeline
                         // echo "${err.buildResult}"
                     }
                 // step([$class: 'Mailer', recipients: 'admin@somewhere'])
-            }    
-            
-            sh "docker build -t ${image} ${appName}/"
-
+                    }    
             }
         }
         stage('push') {
