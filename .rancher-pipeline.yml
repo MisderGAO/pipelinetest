@@ -8,7 +8,7 @@ stages:
         = image\nsh 'echo ${tag}'"
   - publishImageConfig:
       dockerfilePath: ./httpd/Dockerfile
-      buildContext: .
+      buildContext: ./httpd/
       tag: httpd:${tag}
       registry: 127.0.0.1:34228
 - name: deploy
