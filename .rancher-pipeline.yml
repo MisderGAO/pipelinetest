@@ -1,0 +1,21 @@
+stages:
+- name: build
+  steps:
+  - runScriptConfig:
+      image: php:latest
+      shellScript: "tag = readFile('version.txt').replace(\"\\n\", \"\").replace(\"\\r\",
+        \"\")                            \nimage = \"httpd:${tag}\"\nenv.BUILDIMG
+        = image\nsh 'echo ${tag}'"
+  - publishImageConfig:
+      dockerfilePath: ./httpd/Dockerfile
+      buildContext: ./httpd/
+      tag: httpd:${tag}
+      registry: 127.0.0.1:34228
+- name: deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment/service-httpd.yml
+  - applyYamlConfig:
+      path: ./deployment/deploy-httpd.yml
+timeout: 60
+notification: {}
