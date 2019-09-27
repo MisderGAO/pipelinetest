@@ -1,11 +1,6 @@
 stages:
 - name: build
   steps:
-  - runScriptConfig:
-      image: php:latest
-      shellScript: "tag = readFile('version.txt').replace(\"\\n\", \"\").replace(\"\\r\",
-        \"\")                            \nimage = \"httpd:${tag}\"\nenv.BUILDIMG
-        = image\nsh 'echo ${tag}'"
   - publishImageConfig:
       dockerfilePath: ./httpd/Dockerfile
       buildContext: ./httpd/
