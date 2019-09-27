@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: httpd
-        image: $BUILDIMG
+        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
         ports:
         - containerPort: 80
           name: http
