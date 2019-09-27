@@ -1,0 +1,14 @@
+stages:
+- name: build
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./httpd/Dockerfile
+      buildContext: .
+      tag: httpd:1.0
+      registry: 127.0.0.1:34228
+- name: deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
+timeout: 60
+notification: {}
