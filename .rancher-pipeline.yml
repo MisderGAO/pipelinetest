@@ -9,7 +9,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./httpd/Dockerfile
       buildContext: ./httpd/
-      tag: httpd:${tag}
+      tag: httpd:${CICD_EXECUTION_SEQUENCE}
       registry: 127.0.0.1:34228
 - name: deploy
   steps:
