@@ -18,6 +18,8 @@ spec:
         app: sitti
         tier: httpd
     spec:
+      imagePullSecrets:
+      - name: pipeline-docker-registry
       containers:
       - name: httpd
         image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
