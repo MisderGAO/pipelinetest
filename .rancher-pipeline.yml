@@ -5,7 +5,7 @@ stages:
       dockerfilePath: ./httpd/Dockerfile
       buildContext: ./httpd/
       tag: httpd:${CICD_EXECUTION_SEQUENCE}
-      registry: 127.0.0.1:34623
+  #    registry: 127.0.0.1:34623
 - name: deploy
   steps:
   - applyYamlConfig:
