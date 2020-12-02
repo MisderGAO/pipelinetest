@@ -6,6 +6,9 @@ stages:
       buildContext: ./httpd/
       tag: httpd:${CICD_EXECUTION_SEQUENCE}
   #    registry: 127.0.0.1:34623
+    env:
+      PLUGIN_DEBUG: "true"
+      PLUGIN_INSECURE: "true"
 - name: deploy
   steps:
   - applyYamlConfig:
