@@ -5,9 +5,6 @@ stages:
       dockerfilePath: ./python/Dockerfile
       buildContext: ./python/
       tag: python:${CICD_EXECUTION_SEQUENCE}
-  #    registry: 127.0.0.1:34623
-  #  env:
-  #    PLUGIN_DEBUG: "true"
 - name: deploy
   steps:
   - applyYamlConfig:
