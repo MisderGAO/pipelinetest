@@ -26,6 +26,8 @@ spec:
       labels:
         app: hello-python
     spec:
+      imagePullSecrets:
+      - name: pipeline-docker-registry
       containers:
       - name: hello-python
         image: hello-python:latest
